@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.1]
+
+### Added
+
+- New property `ignore_deletion` to resources `mssql_user` and `mssql_database_schema` to allow deletion to be ignored when running `terraform destroy`.
+
 ## [0.4.0]
 
 ### Added

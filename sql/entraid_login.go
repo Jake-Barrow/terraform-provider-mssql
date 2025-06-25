@@ -4,7 +4,7 @@ import (
 	"context"
 	"database/sql"
 
-	"github.com/ValeruS/terraform-provider-mssql/mssql/model"
+	"github.com/Jake-Barrow/terraform-provider-mssql/mssql/model"
 )
 
 func (c *Connector) GetEntraIDLogin(ctx context.Context, name string) (*model.EntraIDLogin, error) {

@@ -1,4 +1,4 @@
-module github.com/ValeruS/terraform-provider-mssql
+module github.com/Jake-Barrow/terraform-provider-mssql
 
 go 1.23.0
 

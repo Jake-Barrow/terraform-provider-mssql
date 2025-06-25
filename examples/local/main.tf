@@ -6,7 +6,7 @@ terraform {
       version = "~> 3.0"
     }
     mssql = {
-      source  = "valerus/mssql"
+      source  = "Jake-Barrow/mssql"
       version = "~> 0.2"
     }
     random = {
@@ -142,7 +142,7 @@ resource "mssql_database_role" "example" {
       password = local.local_password
     }
   }
-  database = "master"
+  database  = "master"
   role_name = "testrole"
 }
 
@@ -154,8 +154,8 @@ resource "mssql_database_role" "example_authorization" {
       password = local.local_password
     }
   }
-  database = "example-db"
-  role_name = "example-role"
+  database   = "example-db"
+  role_name  = "example-role"
   owner_name = mssql_user.example.username
 }
 
@@ -167,8 +167,8 @@ resource "mssql_database_permissions" "example" {
       password = local.local_password
     }
   }
-  database    = "example"
-  username    = "username"
+  database = "example"
+  username = "username"
   permissions = [
     "EXECUTE",
     "UPDATE",
@@ -184,7 +184,7 @@ resource "mssql_database_schema" "example" {
       password = local.local_password
     }
   }
-  database = "master"
+  database    = "master"
   schema_name = "testschema"
 }
 
@@ -196,7 +196,7 @@ resource "mssql_database_schema" "example_authorization" {
       password = local.local_password
     }
   }
-  database = "example-db"
+  database    = "example-db"
   schema_name = "example-schema"
-  owner_name = mssql_user.example.username
+  owner_name  = mssql_user.example.username
 }

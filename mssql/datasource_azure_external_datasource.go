@@ -4,7 +4,7 @@ import (
 	"context"
 	"strings"
 
-	"github.com/ValeruS/terraform-provider-mssql/mssql/validate"
+	"github.com/Jake-Barrow/terraform-provider-mssql/mssql/validate"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/pkg/errors"

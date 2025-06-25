@@ -4,8 +4,8 @@ import (
 	"context"
 	"strings"
 
-	"github.com/ValeruS/terraform-provider-mssql/mssql/model"
-	"github.com/ValeruS/terraform-provider-mssql/mssql/validate"
+	"github.com/Jake-Barrow/terraform-provider-mssql/mssql/model"
+	"github.com/Jake-Barrow/terraform-provider-mssql/mssql/validate"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/pkg/errors"
@@ -28,6 +28,11 @@ func resourceDatabaseSchema() *schema.Resource {
 				Elem: &schema.Resource{
 					Schema: getServerSchema(serverProp),
 				},
+			},
+			ignoreDeletionProp: {
+				Type:     schema.TypeBool,
+				Optional: true,
+        Default:  false,
 			},
 			databaseProp: {
 				Type:     schema.TypeString,
@@ -151,6 +156,12 @@ func resourceDatabaseSchemaRead(ctx context.Context, data *schema.ResourceData, 
 }
 
 func resourceDatabaseSchemaDelete(ctx context.Context, data *schema.ResourceData, meta interface{}) diag.Diagnostics {
+  ignoreDeletion := data.Get(ignoreDeletionProp).(bool)
+
+  if ignoreDeletion {
+    return nil
+  }
+
 	logger := loggerFromMeta(meta, "schema", "delete")
 	logger.Debug().Msgf("Delete %s", data.Id())
 

@@ -8,7 +8,7 @@ The SQL Server provider exposes resources used to manage the configuration of re
 terraform {
   required_providers {
     mssql = {
-      source = "valerus/mssql"
+      source = "Jake-Barrow/mssql"
       version = "~> 0.3.5"
     }
   }

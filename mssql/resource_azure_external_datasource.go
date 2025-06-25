@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/ValeruS/terraform-provider-mssql/mssql/model"
-	"github.com/ValeruS/terraform-provider-mssql/mssql/validate"
+	"github.com/Jake-Barrow/terraform-provider-mssql/mssql/model"
+	"github.com/Jake-Barrow/terraform-provider-mssql/mssql/validate"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
@@ -75,7 +75,7 @@ func resourceAzureExternalDatasource() *schema.Resource {
 		CustomizeDiff: func(ctx context.Context, data *schema.ResourceDiff, m interface{}) error {
 			typeStr := data.Get(typeStrProp).(string)
 			rdatabasename := data.Get(rdatabasenameProp).(string)
-			
+
 			if typeStr == "RDBMS" && rdatabasename == "" {
 				return fmt.Errorf("%q is required when type is RDBMS", rdatabasenameProp)
 			}

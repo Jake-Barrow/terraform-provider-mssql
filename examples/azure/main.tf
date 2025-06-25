@@ -10,7 +10,7 @@ terraform {
       version = "~> 3.85"
     }
     mssql = {
-      source  = "ValeruS/mssql"
+      source  = "Jake-Barrow/mssql"
       version = "~> 0.2"
     }
     random = {
@@ -286,7 +286,7 @@ resource "mssql_database_role" "example" {
       client_secret = azuread_service_principal_password.sa.value
     }
   }
-  database = "master"
+  database  = "master"
   role_name = "testrole"
 }
 
@@ -299,8 +299,8 @@ resource "mssql_database_role" "example_authorization" {
       client_secret = azuread_service_principal_password.sa.value
     }
   }
-  database = "master"
-  role_name = "testrole"
+  database   = "master"
+  role_name  = "testrole"
   owner_name = mssql_user.external.username
 }
 
@@ -313,8 +313,8 @@ resource "mssql_database_permissions" "example" {
       client_secret = azuread_service_principal_password.sa.value
     }
   }
-  database    = "example"
-  username    = "username"
+  database = "example"
+  username = "username"
   permissions = [
     "EXECUTE",
     "UPDATE",
@@ -331,7 +331,7 @@ resource "mssql_database_schema" "example" {
       client_secret = azuread_service_principal_password.sa.value
     }
   }
-  database = "master"
+  database    = "master"
   schema_name = "testschema"
 }
 
@@ -344,7 +344,7 @@ resource "mssql_database_schema" "example_authorization" {
       client_secret = azuread_service_principal_password.sa.value
     }
   }
-  database = "my-database"
+  database    = "my-database"
   schema_name = "testschema"
-  owner_name = mssql_user.external.username
+  owner_name  = mssql_user.external.username
 }

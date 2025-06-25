@@ -2,6 +2,7 @@ package mssql
 
 const (
 	serverProp               = "server"
+	ignoreDeletionProp       = "ignore_deletion"
 	databaseProp             = "database"
 	principalIdProp          = "principal_id"
 	usernameProp             = "username"

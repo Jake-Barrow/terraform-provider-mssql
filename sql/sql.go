@@ -12,7 +12,7 @@ import (
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-	"github.com/ValeruS/terraform-provider-mssql/mssql/model"
+	"github.com/Jake-Barrow/terraform-provider-mssql/mssql/model"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	mssql "github.com/microsoft/go-mssqldb"
 	"github.com/microsoft/go-mssqldb/azuread"
@@ -309,8 +309,8 @@ func (c *Connector) GetMSSQLVersion(ctx context.Context) (string, error) {
 // DatabaseExists checks if a database exists in SQL Server
 func (c *Connector) DatabaseExists(ctx context.Context, database string) (bool, error) {
 	cmd := `
-		SELECT COUNT(1) 
-		FROM sys.databases 
+		SELECT COUNT(1)
+		FROM sys.databases
 		WHERE name = @p1
 	`
 	var count int
@@ -320,6 +320,6 @@ func (c *Connector) DatabaseExists(ctx context.Context, database string) (bool, 
 	if err != nil {
 		return false, errors.Wrapf(err, "error checking if database [%s] exists", database)
 	}
-	
+
 	return count > 0, nil
 }

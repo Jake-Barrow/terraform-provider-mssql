@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/ValeruS/terraform-provider-mssql/mssql"
+	"github.com/Jake-Barrow/terraform-provider-mssql/mssql"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
 )
 

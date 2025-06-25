@@ -36,6 +36,8 @@ resource "mssql_database_role" "example" {
   database   = "my-database"
   schema_name  = "example-schema-name"
   owner_name = "example_username"
+
+  ignore_deletion = true
 }
 ```
 
@@ -47,6 +49,7 @@ The following arguments are supported:
 * `schema_name` - (Required) The name of the schema. Changing this forces a new resource to be created.
 * `database` - (Optional) The schema will be created in this database. Defaults to `master`. Changing this forces a new resource to be created.
 * `owner_name` - (Optional) Is the database user that is to own the new schema. Changing this resource property modifies the existing resource.
+* `ignore_deletion` - (Optional) If set to `true`, the schema will not be deleted when running `terraform destroy`. Defaults to `false`.
 
 The `server` block supports the following arguments:
 

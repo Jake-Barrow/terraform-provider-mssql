@@ -63,6 +63,8 @@ resource "mssql_user" "example_group" {
   type      = "X"
 
   roles     = ["db_datareader"]
+
+  ignore_deletion = true
 }
 ```
 
@@ -82,6 +84,7 @@ The following arguments are supported:
 * `default_schema` - (Optional) Specifies the first schema that will be searched by the server when it resolves the names of objects for this database user. Defaults to `dbo`.
 * `default_language` - (Optional) Specifies the default language for the user. If no default language is specified, the default language for the user will bed the default language of the database. This argument does not apply to Azure SQL Database or if the user is not a contained database user.
 * `roles` - (Optional) List of database roles the user has. Defaults to none.
+* `ignore_deletion` - (Optional) If set to `true`, the user will not be deleted when running `terraform destroy`. Defaults to `false`.
 
 -> If only `username` is specified, an external user is created. The username must be in a format appropriate to the external user created, and will vary between SQL Server types. If `password` is specified, a user that authenticates at the database is created, and if `login_name` is specified, a user that authenticates at the server is created.
 

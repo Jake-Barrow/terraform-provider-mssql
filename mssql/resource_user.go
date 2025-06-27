@@ -345,6 +345,8 @@ func resourceUserImport(ctx context.Context, data *schema.ResourceData, meta int
 	database := data.Get(databaseProp).(string)
 	username := data.Get(usernameProp).(string)
 
+  data.Set(ignoreDeletionProp, false)
+
 	connector, err := getUserConnector(meta, data)
 	if err != nil {
 		return nil, err

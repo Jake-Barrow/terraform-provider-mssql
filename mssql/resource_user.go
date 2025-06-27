@@ -51,6 +51,9 @@ func resourceUser() *schema.Resource {
 				Type:     schema.TypeString,
 				Optional: true,
 				ForceNew: true,
+				DiffSuppressFunc: func(k, old, new string, data *schema.ResourceData) bool {
+					return old == new
+				},
 			},
 			typeStrProp: {
 				Type:          schema.TypeString,
